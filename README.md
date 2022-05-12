@@ -28,6 +28,40 @@ You can query the API for word-pair counts throughout the entirety of the text b
 
 ``/books/:id/word-pairs?chapters=5``
 
+The API will return both total count and chapter-level counts for each word-pair:
+
+```
+"pip and": {
+  "total_count": 7,
+  "chapter_counts": {
+    "2": 2,
+    "7": 5
+  }
+},
+"came to": {
+  "total_count": 6,
+  "chapter_counts": {
+  "1": 4,
+  "8": 2
+  }
+},
+"to be": {
+  "total_count": 62,
+  "chapter_counts": {
+  "1": 3,
+  "2": 5,
+  "3": 4,
+  "4": 6,
+  "5": 6,
+  "6": 5,
+  "7": 12,
+  "8": 12,
+  "9": 3,
+  "10": 6
+  }
+}
+```
+
 Note that you can also filter for multiple chapters by listing each chapter separately, separated by a comma, as well as specify chapter ranges with a hyphen "-". For example, the API call below will retrieve word-pair counts for chapters 1 through 5, as well as chapters 9 and 13.
 
 ``/books/:id/word-pairs?chapters=1-5,9,13``
